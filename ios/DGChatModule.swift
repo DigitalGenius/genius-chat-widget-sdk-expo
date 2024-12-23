@@ -290,14 +290,7 @@ extension DGChatModule {
     private func sendWidgetSystemMessage(_ message: [String: Any]) {
         DispatchQueue.main.async {
             guard DGChat.isPresented else { return }
-            DGChat.sendSystemMessage(message) { result in
-                switch result {
-                case .failure(let error):
-                    debugPrint("result \(error)")
-                default:
-                    break
-                }
-                
+            DGChat.sendSystemMessage(message) { _ in
             }
         }
     }
@@ -321,13 +314,7 @@ extension DGChatModule {
     private func resetDGChat() {
         DispatchQueue.main.async {
             guard DGChat.isPresented else { return }
-            DGChat.resetChat { result in
-                switch result {
-                case .failure(let error):
-                    debugPrint("result \(error)")
-                default:
-                    break
-                }
+            DGChat.resetChat { _ in
             }
         }
     }
